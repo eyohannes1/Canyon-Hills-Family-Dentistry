@@ -1,0 +1,438 @@
+/* =========================================
+   1. Design System & Variables
+   ========================================= */
+:root {
+    /* Color Palette */
+    --color-primary: #007A87;
+    /* Professional Teal */
+    --color-primary-dark: #005A63;
+    --color-secondary: #E6957C;
+    /* Warm Terracotta */
+    --color-bg: #FAF9F6;
+    /* Warm Off-White (not clinical) */
+    --color-bg-alt: #EFEFE9;
+    /* Slightly darker warm gray */
+    --color-text: #2D2D2D;
+    /* Soft Black */
+    --color-text-light: #5A5A5A;
+    --color-white: #FFFFFF;
+    --color-error: #D32F2F;
+
+    /* Typography */
+    /* USER REQUEST: ALWAYS USE SF PRO DISPLAY */
+    --font-family-base: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --font-size-base: 16px;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 3rem;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+
+    /* Shadows & Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+}
+
+/* =========================================
+   2. Reset & Base Styles
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: var(--font-size-base);
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   3. Utilities / Components
+   ========================================= */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition-fast);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 122, 135, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.section-title {
+    font-size: var(--font-size-xl);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+/* =========================================
+   4. Header / Navigation
+   ========================================= */
+header {
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-soft);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: var(--spacing-sm) 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links a {
+    padding: 0.75rem;
+    display: block;
+    font-weight: 500;
+}
+
+/* Hamburger */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: var(--transition-fast);
+    border-radius: 2px;
+}
+
+/* Language & Mobile Actions */
+.mobile-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Language Toggle */
+.lang-toggle {
+    display: flex;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-light);
+    padding: 0.25rem 0.5rem;
+}
+
+.lang-btn.active {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+.phone-btn-mobile {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================
+   5. Hero Section
+   ========================================= */
+.hero {
+    position: relative;
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('assets/images/uploaded_image_2_1768336864315.png');
+    /* Using one of the uploaded images as BG */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+}
+
+/* =========================================
+   6. Services Section
+   ========================================= */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.service-card {
+    background: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary-dark);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-primary);
+}
+
+/* =========================================
+   7. Transparent Pricing
+   ========================================= */
+.pricing-section {
+    background-color: var(--color-bg-alt);
+    padding: var(--spacing-lg) 0;
+}
+
+.pricing-table-container {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pricing-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.25rem;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.pricing-row:last-child {
+    border-bottom: none;
+}
+
+.pricing-row:hover {
+    background-color: #fafafa;
+}
+
+.price-item {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.price-cost {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+}
+
+.insurance-note {
+    text-align: center;
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+/* =========================================
+   8. Team Section
+   ========================================= */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.team-card {
+    background: var(--color-white);
+    /* Clean background */
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    /* Consistent shadow */
+}
+
+.team-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+.team-info {
+    padding: var(--spacing-sm);
+    text-align: center;
+}
+
+.team-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+.team-role {
+    color: var(--color-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.lang-badge {
+    display: inline-block;
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* =========================================
+   9. Footer
+   ========================================= */
+footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.footer-info {
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-info p {
+    margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   10. Animations
+   ========================================= */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, visibility;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
