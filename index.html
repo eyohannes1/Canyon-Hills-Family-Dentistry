@@ -44,13 +44,45 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1 data-key="hero_title">Quality Dental Care for Your Family</h1>
-            <p data-key="hero_subtitle">Transparent Pricing. Bilingual Staff. Gentle Care.</p>
-            <div style="display: flex; gap: 1rem; justify-content: center;">
-                <a href="tel:5555555555" class="btn btn-primary" data-key="hero_cta_primary">Cal Now</a>
-                <a href="#pricing" class="btn btn-secondary" data-key="hero_cta_secondary">See Prices</a>
+    <section class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="trust-badge-top">
+                    <span class="stars">★★★★★</span>
+                    <span class="trust-text">TRUSTED BY 500+ FAMILIES</span>
+                </div>
+                <h1 data-key="hero_title">Quality Dental Care for Your Family</h1>
+                <p class="hero-subtitle" data-key="hero_subtitle">Cuidado Dental de Calidad para su Familia. Transparent
+                    Pricing. Bilingual Staff. No Insurance Required.</p>
+                <div class="hero-actions">
+                    <a href="tel:5555555555" class="btn btn-primary" data-key="hero_cta_primary">Schedule Visit</a>
+                    <a href="#pricing" class="btn btn-outline" data-key="hero_cta_secondary">Ver Precios</a>
+                </div>
+                <div class="hero-reviews">
+                    <div class="review-avatars">
+                        <!-- Placeholder circles for avatars -->
+                        <span style="background:#E6957C"></span>
+                        <span style="background:#007A87"></span>
+                        <span style="background:#FFD166"></span>
+                    </div>
+                    <p class="review-text"><strong>500+</strong> 5-Star Google Reviews</p>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <!-- Using a gradient placeholder that looks like the family image from the mock -->
+                <div class="hero-image-placeholder">
+                    <div class="family-illustration">
+                        <!-- Simple CSS shapes or text to represent the illustration -->
+                        👨‍👩‍👧‍👦
+                    </div>
+                    <div class="floating-card">
+                        <div class="icon-circle">🦷</div>
+                        <div class="floating-text">
+                            <strong>We Treat You Like Family</strong>
+                            <small>Nosotros te tratamos como familia</small>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -84,97 +116,169 @@
         </div>
     </section>
 
-    <!-- Transparent Pricing Section -->
-    <section id="pricing" class="pricing-section">
+    <!-- Section: Meet the Team (Ref: Image 1) -->
+    <section id="team" class="team-section">
         <div class="container">
-            <h2 class="section-title" data-key="section_pricing">Transparent Pricing</h2>
-            <p style="text-align: center; margin-bottom: 2rem;" data-key="pricing_subtitle">No hidden fees. You'll know
-                the cost before we start.</p>
-
-            <div class="pricing-table-container">
-                <div class="pricing-row">
-                    <span class="price-item" data-key="price_exam">New Patient Exam & X-Rays</span>
-                    <span class="price-cost">$99</span>
-                </div>
-                <div class="pricing-row">
-                    <span class="price-item" data-key="price_cleaning">Adult Cleaning</span>
-                    <span class="price-cost">$110</span>
-                </div>
-                <div class="pricing-row">
-                    <span class="price-item" data-key="price_filling">White Filling (Starting at)</span>
-                    <span class="price-cost">$150</span>
-                </div>
-                <div class="pricing-row">
-                    <span class="price-item" data-key="price_extraction">Simple Extraction</span>
-                    <span class="price-cost">$180</span>
-                </div>
+            <div class="section-header text-center">
+                <span class="section-subtitle-sm">OUR PROFESSIONALS</span>
+                <h2 class="section-title" data-key="section_team">Meet the People Behind Your Smile</h2>
+                <p class="section-desc" data-key="team_subtitle">Conozca a las personas detrás de su sonrisa. Our
+                    bilingual team is dedicated to providing gentle, high-quality care for your entire family.</p>
             </div>
 
-            <p class="insurance-note" data-key="insurance_note">We accept most major insurance plans. Call for your
-                specific coverage details.</p>
-        </div>
-    </section>
-
-    <!-- Meet Our Team -->
-    <section id="team" style="padding: 4rem 0;">
-        <div class="container">
-            <h2 class="section-title" data-key="section_team">Meet Our Team</h2>
-            <div class="team-grid">
-                <!-- Staff 1 -->
-                <div class="team-card">
-                    <img src="assets/images/uploaded_image_4_1768336864315.png" alt="Dr. Daniel" class="team-img">
-                    <div class="team-info">
-                        <h3 class="team-name">Dr. Daniel</h3>
-                        <span class="team-role" data-key="role_dentist">Dentist</span>
-                        <span class="lang-badge">English / Español</span>
-                        <p style="margin-top: 0.5rem; font-size: 0.9rem;" data-key="bio_daniel">Dedicated to providing
-                            gentle care for the whole family.</p>
+            <div class="team-grid-v2">
+                <!-- Member 1 -->
+                <div class="team-card-v2">
+                    <div class="card-img-top" style="background: #E0F7FA;">
+                        <!-- Placeholder for Dr. Sarah Jenkins -->
+                        👩‍⚕️
+                    </div>
+                    <div class="card-body">
+                        <h3>Dr. Sarah Jenkins</h3>
+                        <span class="role">Lead Dentist</span>
+                        <span class="badge-blue">🇪🇸 Se Habla Español</span>
+                        <p>Passionate about pediatric care and making kids feel safe.</p>
                     </div>
                 </div>
-                <!-- Staff 2 -->
-                <div class="team-card">
-                    <img src="assets/images/uploaded_image_1_1768336864315.png" alt="Maria" class="team-img">
-                    <div class="team-info">
-                        <h3 class="team-name">Maria</h3>
-                        <span class="team-role" data-key="role_hygienist">Hygienist</span>
-                        <span class="lang-badge">English / Español</span>
-                        <p style="margin-top: 0.5rem; font-size: 0.9rem;" data-key="bio_maria">Ensuring your smile is
-                            bright and healthy with care.</p>
+                <!-- Member 2 -->
+                <div class="team-card-v2">
+                    <div class="card-img-top" style="background: #FFECB3;">
+                        <!-- Placeholder for Maria Rodriguez -->
+                        👩🏽
+                    </div>
+                    <div class="card-body">
+                        <h3>Maria Rodriguez</h3>
+                        <span class="role">Senior Hygienist</span>
+                        <span class="badge-blue">🇪🇸 Se Habla Español</span>
+                        <p>Maria has been making cleanings fun and stress-free for 10 years.</p>
                     </div>
                 </div>
-                <!-- Staff 3 -->
-                <div class="team-card">
-                    <img src="assets/images/uploaded_image_0_1768336864315.png" alt="Reception Team" class="team-img">
-                    <div class="team-info">
-                        <h3 class="team-name">Front Desk Team</h3>
-                        <span class="team-role" data-key="role_staff">Support Staff</span>
-                        <span class="lang-badge">English / Español</span>
-                        <p style="margin-top: 0.5rem; font-size: 0.9rem;" data-key="bio_staff">Here to help with
-                            insurance and scheduling.</p>
+                <!-- Member 3 -->
+                <div class="team-card-v2">
+                    <div class="card-img-top" style="background: #E3F2FD;">
+                        <!-- Placeholder for James Smith -->
+                        👨🏻
+                    </div>
+                    <div class="card-body">
+                        <h3>James Smith</h3>
+                        <span class="role">Office Manager</span>
+                        <p>Here to help with your billing questions and insurance claims.</p>
+                    </div>
+                </div>
+                <!-- Member 4 -->
+                <div class="team-card-v2">
+                    <div class="card-img-top" style="background: #F3E5F5;">
+                        <!-- Placeholder for Dr. Elena Garcia -->
+                        👩🏻‍⚕️
+                    </div>
+                    <div class="card-body">
+                        <h3>Dr. Elena Garcia</h3>
+                        <span class="role">Orthodontist</span>
+                        <span class="badge-blue">🇪🇸 Se Habla Español</span>
+                        <p>Specializing in creating beautiful, confident smiles with braces and Invisalign.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Footer -->
-    <section id="contact">
-        <!-- Embedded Google Map Placeholder -->
-        <div
-            style="width: 100%; height: 400px; background: #ddd; display: flex; align-items: center; justify-content: center;">
-            <img src="assets/images/uploaded_image_3_1768336864315.png" alt="Map Location"
-                style="width: 100%; height: 100%; object-fit: cover;">
+    <!-- Section: Insurance & Financial Options (Ref: Image 1 Bottom) -->
+    <section id="insurance" class="insurance-section">
+        <div class="container">
+            <div class="split-header">
+                <div class="header-text">
+                    <h2 class="section-title">Insurance & Financial Options</h2>
+                    <p data-key="insurance_subtitle">Seguros y Opciones Financieras. We accept most PPO insurance plans.
+                        No insurance? No problem. Ask about our membership plan.</p>
+                    <a href="#payment-policy" class="btn btn-primary">View Financial Policy</a>
+                </div>
+                <div class="insurance-grid">
+                    <div class="ins-card">
+                        <div class="ins-icon">🛡️</div>
+                        <div class="ins-info">
+                            <strong>Delta Dental</strong>
+                            <span>Preferred Provider</span>
+                        </div>
+                    </div>
+                    <div class="ins-card">
+                        <div class="ins-icon">✅</div>
+                        <div class="ins-info">
+                            <strong>Cigna</strong>
+                            <span>In-Network</span>
+                        </div>
+                    </div>
+                    <div class="ins-card">
+                        <div class="ins-icon">🏥</div>
+                        <div class="ins-info">
+                            <strong>MetLife</strong>
+                            <span>In-Network</span>
+                        </div>
+                    </div>
+                    <div class="ins-card">
+                        <div class="ins-icon">💳</div>
+                        <div class="ins-info">
+                            <strong>BlueCross</strong>
+                            <span>PPO Plans</span>
+                        </div>
+                    </div>
+                    <div class="ins-card full-width">
+                        <div class="ins-icon">🤝</div>
+                        <div class="ins-info">
+                            <strong>Flexible Financing</strong>
+                            <span>We accept CareCredit & Sunbit / Aceptamos planes de pago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-info">
-            <h3>Hispanic Family Dentistry</h3>
-            <p>1234 Dental Way, City, State, ZIP</p>
-            <p><a href="tel:5555555555" style="text-decoration: underline;">(555) 555-5555</a></p>
-            <p data-key="footer_hours">Mon-Fri: 9am - 6pm | Sat: By Appointment</p>
+    <!-- Section: Footer (Ref: Image 2) -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand -->
+                <div class="footer-brand">
+                    <h3>
+                        <span style="color:var(--color-primary)">🦷</span>
+                        <span data-key="brand_name">Hispanic Family Dentistry</span>
+                    </h3>
+                    <p data-key="footer_desc">Quality care for the whole family in English and Spanish.</p>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem; opacity: 0.7;">
+                        <!-- Social Placeholders -->
+                        <span>👍</span>
+                        <span>📷</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" data-key="nav_home">Home / Inicio</a></li>
+                        <li><a href="#services" data-key="nav_services">Services / Servicios</a></li>
+                        <li><a href="#insurance" data-key="nav_pricing">Pricing / Precios</a></li>
+                        <li><a href="#contact" data-key="nav_contact">Contact / Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Visit Us -->
+                <div class="footer-visit">
+                    <h4>Visit Us</h4>
+                    <p>📍 1234 Dental Way, Ste 100<br>Austin, TX 78701</p>
+                    <p>📞 <a href="tel:5555555555">(555) 555-5555</a></p>
+                    <p>🕒 Mon-Fri: 9am - 6pm<br>Sat: 10am - 2pm</p>
+                    <div class="map-mini">
+                        <!-- Map Placeholder Image -->
+                        <span>🗺️ MAP VIEW</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Hispanic Family Dentistry. All rights reserved.</p>
+            </div>
         </div>
-        <p style="opacity: 0.7; font-size: 0.8rem;">&copy; 2026 Hispanic Family Dentistry</p>
     </footer>
 
     <!-- Scripts -->

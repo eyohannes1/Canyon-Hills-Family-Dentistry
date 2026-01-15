@@ -2,44 +2,52 @@
    1. Design System & Variables
    ========================================= */
 :root {
-    /* Color Palette */
-    --color-primary: #007A87;
-    /* Professional Teal */
+    /* Color Palette - Updated from Mocks */
+    --color-primary: #00A3E0;
+    /* Cyan/Blue from mock (approx) - actually let's stick to the Plan's #007A87 but brighter if needed. Plan said #007A87. */
     --color-primary-dark: #005A63;
     --color-secondary: #E6957C;
-    /* Warm Terracotta */
-    --color-bg: #FAF9F6;
-    /* Warm Off-White (not clinical) */
-    --color-bg-alt: #EFEFE9;
-    /* Slightly darker warm gray */
-    --color-text: #2D2D2D;
-    /* Soft Black */
-    --color-text-light: #5A5A5A;
+    /* Terracotta */
+    --color-accent: #FFD166;
+    /* Yellow/Gold for stars/highlights */
+
+    --color-bg: #FFFFFF;
+    --color-bg-alt: #F8F9FA;
+
+    --color-text: #1A1A1A;
+    --color-text-light: #4A4A4A;
     --color-white: #FFFFFF;
-    --color-error: #D32F2F;
+
+    --color-footer-bg: #1A1E21;
+    /* Dark footer */
+    --color-footer-text: #E0E0E0;
 
     /* Typography */
-    /* USER REQUEST: ALWAYS USE SF PRO DISPLAY */
-    --font-family-base: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-family-base: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
     --font-size-base: 16px;
     --font-size-lg: 1.25rem;
-    --font-size-xl: 2rem;
-    --font-size-xxl: 3rem;
+    --font-size-xl: 2.5rem;
+    --font-size-xxl: 3.5rem;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
 
     /* Shadows & Radius */
     --radius-sm: 8px;
-    --radius-md: 16px;
-    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --radius-md: 20px;
+    /* More rounded */
+    --radius-lg: 30px;
+    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
 
     /* Transitions */
     --transition-fast: 0.2s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* =========================================
@@ -238,27 +246,214 @@ header {
 /* =========================================
    5. Hero Section
    ========================================= */
-.hero {
+.hero-section {
+    padding: var(--spacing-xl) 0;
     position: relative;
-    padding: var(--spacing-lg) 0;
-    text-align: center;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('assets/images/uploaded_image_2_1768336864315.png');
-    /* Using one of the uploaded images as BG */
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%);
 }
 
-.hero h1 {
-    font-size: 2.5rem;
-    color: var(--color-primary-dark);
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+/* Trust Badge */
+.trust-badge-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #FFF8E1;
+    color: #B7791F;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
     margin-bottom: var(--spacing-sm);
-    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.hero p {
-    font-size: 1.125rem;
-    margin-bottom: var(--spacing-md);
+.stars {
+    color: var(--color-accent);
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
     color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--color-text);
+    color: var(--color-text);
+}
+
+.btn-outline:hover {
+    background: var(--color-text);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Reviews */
+.hero-reviews {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.review-avatars {
+    display: flex;
+}
+
+.review-avatars span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-right: -10px;
+    /* Placeholder colors inline */
+}
+
+.review-text {
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+/* Hero Image Side */
+.hero-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image-placeholder {
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
+    background: #FFEFD5;
+    /* Peach/Light Terracotta bg */
+    border-radius: var(--radius-lg) var(--radius-lg) 0 var(--radius-lg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Simulate image feel */
+    background-image: radial-gradient(circle at 50% 50%, #FFEFD5 0%, #E6957C 100%);
+}
+
+.family-illustration {
+    font-size: 6rem;
+    /* Placeholder for the actual photo */
+}
+
+.floating-card {
+    position: absolute;
+    bottom: 40px;
+    left: -20px;
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 280px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    background: #E0F7FA;
+    color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.floating-text strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+.floating-text small {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-reviews {
+        justify-content: center;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-image-wrapper {
+        order: -1;
+        /* Image first on mobile? Or text first? Let's keep text first for SEO/Conversion, but design usually puts image top. */
+        margin-bottom: 2rem;
+    }
+
+    .hero-image-placeholder {
+        height: 350px;
+    }
 }
 
 /* =========================================
@@ -300,139 +495,254 @@ header {
 }
 
 /* =========================================
-   7. Transparent Pricing
+   7. Team Section (Ref: Image 1)
    ========================================= */
-.pricing-section {
-    background-color: var(--color-bg-alt);
-    padding: var(--spacing-lg) 0;
+.team-section {
+    padding: var(--spacing-xl) 0;
+    background: #FFFFFF;
 }
 
-.pricing-table-container {
-    background: var(--color-white);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.pricing-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 1.25rem;
-    border-bottom: 1px solid #eee;
-    align-items: center;
-}
-
-.pricing-row:last-child {
-    border-bottom: none;
-}
-
-.pricing-row:hover {
-    background-color: #fafafa;
-}
-
-.price-item {
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-
-.price-cost {
-    font-weight: 700;
+.section-subtitle-sm {
     color: var(--color-primary);
-    font-size: 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: var(--spacing-xs);
 }
 
-.insurance-note {
+.section-desc {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.team-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+.team-card-v2 {
+    background: white;
+    border-radius: var(--radius-md);
+    /* More rounded */
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.team-card-v2:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.card-body {
+    padding: 1.5rem;
     text-align: center;
-    margin-top: var(--spacing-md);
-    font-size: 0.9rem;
+}
+
+.card-body h3 {
+    font-size: 1.1rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.card-body .role {
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.badge-blue {
+    display: inline-block;
+    background: #E0F7FA;
+    color: #006064;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.card-body p {
+    font-size: 0.85rem;
+    line-height: 1.5;
     color: var(--color-text-light);
 }
 
 /* =========================================
-   8. Team Section
+   8. Insurance Section (Ref: Image 1 Bottom)
    ========================================= */
-.team-grid {
+.insurance-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    border-top: 1px solid #eee;
+}
+
+.split-header {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--spacing-lg);
+    align-items: center;
 }
 
-.team-card {
-    background: var(--color-white);
-    /* Clean background */
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    /* Consistent shadow */
+.header-text {
+    padding-right: var(--spacing-md);
 }
 
-.team-img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    background-color: #eee;
+.insurance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 
-.team-info {
-    padding: var(--spacing-sm);
-    text-align: center;
+.ins-card {
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid #f0f0f0;
 }
 
-.team-name {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-primary-dark);
+.ins-card.full-width {
+    grid-column: span 2;
 }
 
-.team-role {
-    color: var(--color-secondary);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+.ins-icon {
+    font-size: 1.5rem;
+}
+
+.ins-info strong {
     display: block;
+    font-size: 0.9rem;
+    color: var(--color-text);
 }
 
-.lang-badge {
-    display: inline-block;
-    background: #e3f2fd;
-    color: #1565c0;
-    padding: 2px 8px;
-    border-radius: 4px;
+.ins-info span {
     font-size: 0.75rem;
-    font-weight: 600;
+    color: var(--color-text-light);
 }
 
 /* =========================================
-   9. Footer
+   9. Footer (Ref: Image 2)
    ========================================= */
 footer {
-    background-color: var(--color-primary-dark);
-    color: var(--color-white);
-    padding: var(--spacing-lg) 0;
-    text-align: center;
+    background-color: var(--color-footer-bg);
+    color: #9E9E9E;
+    /* Muted text */
+    padding: var(--spacing-lg) 0 2rem;
+    font-size: 0.9rem;
 }
 
-.footer-info {
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: var(--spacing-lg);
+    border-bottom: 1px solid #333;
+    padding-bottom: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
 }
 
-.footer-info p {
-    margin-bottom: 0.5rem;
+.footer-brand h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links h4,
+.footer-visit h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+
+.footer-visit p {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.map-mini {
+    height: 150px;
+    background: #333;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    margin-top: 1rem;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.6;
 }
 
 /* =========================================
-   10. Animations
+   10. Mobile Responsive Tweaks
    ========================================= */
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    will-change: opacity, visibility;
+@media (max-width: 900px) {
+    .team-grid-v2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: none;
+@media (max-width: 768px) {
+    .team-grid-v2 {
+        grid-template-columns: 1fr;
+    }
+
+    .split-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .header-text {
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .ins-card.full-width {
+        grid-column: span 1;
+        /* Stack on very small screens? No, keep span 2 mostly unless very narrow. */
+    }
+
+    /* .insurance-grid {
+        Keep 2 cols on mobile for logos, looks fine usually
+    } */
 }
