@@ -1,31 +1,44 @@
-:root {
-    /* Color Palette - Minimal & Apple-like */
-    --color-bg-body: #ffffff;
-    --color-bg-alt: #f5f5f7;
-    /* Classic Apple light grey */
-    --color-text-primary: #1d1d1f;
-    /* Soft black */
-    --color-text-secondary: #86868b;
-    --color-accent: #0071e3;
-    /* Clicktable Apple blue */
-    --color-accent-hover: #0077ed;
-    --color-border: #d2d2d7;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
 
-    /* Depth & Shadows */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
-    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
-    /* Soft XL shadow for cards */
-    --shadow-glow: 0 0 20px rgba(0, 113, 227, 0.4);
+:root {
+    /* Color Palette - Stripe-Inspired Rich Theme */
+    --color-primary: #00BFFF;
+    /* Deep Sky Blue */
+    --color-primary-hover: #008BCE;
+    /* Darker Sky Blue */
+    --color-accent: #f472b6;
+    /* Pink-400 */
+    --color-rich-blue: #1e3a8a;
+    /* Rich Blue for accents/shadows */
+
+    --color-bg-body: transparent;
+    --color-bg-card: rgba(255, 255, 255, 0.95);
+    --color-bg-alt: #f8fafc;
+    /* Slate-50 */
+
+    --color-text-primary: #1e293b;
+    /* Slate-800 */
+    --color-text-secondary: #475569;
+    /* Slate-600 */
+    --color-text-inverse: #FFFFFF;
+
+    --color-border: #e2e8f0;
+
+    /* Depth & Shadows - Richer, Tinted */
+    --shadow-sm: 0 1px 2px 0 rgba(99, 102, 241, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -1px rgba(99, 102, 241, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(99, 102, 241, 0.1), 0 4px 6px -2px rgba(99, 102, 241, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(99, 102, 241, 0.15), 0 10px 10px -5px rgba(99, 102, 241, 0.1);
+    --shadow-rich-hover: 0 20px 25px -5px rgba(30, 58, 138, 0.25), 0 10px 10px -5px rgba(30, 58, 138, 0.1);
 
     /* Typography */
-    --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-primary: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
     --font-size-h1: clamp(40px, 5vw, 64px);
-    /* Large confident typography */
     --font-size-h2: clamp(32px, 4vw, 48px);
     --font-size-h3: 24px;
-    --font-size-body: 17px;
-    /* Apple standard body size */
+    --font-size-body: 16px;
+
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
@@ -37,11 +50,17 @@
     --spacing-sm: 16px;
     --spacing-md: 32px;
     --spacing-lg: 64px;
-    --spacing-xl: 120px;
+    --spacing-xl: 96px;
 
     /* Animation */
     --transition-fast: 0.2s ease;
     --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
 }
 
 * {
@@ -51,12 +70,12 @@
 }
 
 body {
-    font-family: var(--font-primary);
+    font-family: var(--font-body);
     background-color: var(--color-bg-body);
+    /* Transparent to show fixed bg */
     color: var(--color-text-primary);
     font-size: var(--font-size-body);
-    line-height: 1.47059;
-    letter-spacing: -0.022em;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -64,11 +83,13 @@ body {
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
 .section {
     padding: var(--spacing-xl) 0;
+    position: relative;
+    /* Ensure stacking context */
 }
 
 /* Typography Defaults */
@@ -78,19 +99,23 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: -0.005em;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    line-height: 1.2;
     margin-bottom: var(--spacing-sm);
 }
 
 h1 {
     font-size: var(--font-size-h1);
-    line-height: 1.07143;
 }
 
 h2 {
     font-size: var(--font-size-h2);
-    line-height: 1.1;
+}
+
+h3 {
+    font-size: var(--font-size-h3);
 }
 
 p {
@@ -98,19 +123,19 @@ p {
     margin-bottom: var(--spacing-sm);
 }
 
-/* Apple Style Card */
+/* Modern Card Style - Glassy/Clean */
 .card {
     background: #fff;
-    border-radius: 18px;
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    /* Lift effect */
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-rich-hover);
 }
 
 /* Buttons */
@@ -118,33 +143,42 @@ p {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;
-    font-size: 17px;
-    font-weight: var(--font-weight-medium);
-    border-radius: 980px;
-    /* Pill shape */
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-full);
     text-decoration: none;
     transition: all var(--transition-fast);
     border: none;
     cursor: pointer;
+    font-family: var(--font-primary);
 }
 
 .btn-primary {
-    background-color: var(--color-accent);
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    box-shadow: 0 4px 6px rgba(0, 201, 232, 0.25);
 }
 
 .btn-primary:hover {
-    background-color: var(--color-accent-hover);
-    box-shadow: 0 0 15px rgba(0, 113, 227, 0.4);
-    /* Glow effect */
-    transform: scale(1.02);
+    background-color: var(--color-primary-hover);
+    box-shadow: 0 6px 12px rgba(0, 201, 232, 0.35);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: var(--color-bg-alt);
+    color: var(--color-text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #e5e7eb;
 }
 
 /* Sticky CTA */
 .sticky-cta-wrapper {
     position: fixed;
-    bottom: 20px;
+    bottom: 24px;
     left: 0;
     right: 0;
     display: flex;
@@ -171,6 +205,34 @@ p {
     opacity: 1;
     transform: translateY(0);
 }
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(125deg, #0f172a, #1e3a8a, #020617);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 
 /* Hero Section */
 .hero-section {
@@ -212,7 +274,7 @@ p {
     line-height: 1.05;
     margin-bottom: var(--spacing-sm);
     letter-spacing: -0.015em;
-    color: #1d1d1f;
+    color: var(--color-text-primary);
 }
 
 .hero-subtitle {
@@ -372,9 +434,30 @@ p {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+
+    /* Navigation */
+    nav .container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .links {
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        padding-top: 40px;
+        min-height: auto;
+    }
+
     .hero-section .container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
     }
 
     .hero-content {
@@ -384,20 +467,34 @@ p {
 
     .hero-visual {
         order: 2;
-        margin-top: var(--spacing-md);
+        margin-top: 0;
+    }
+
+    .hero-title {
+        font-size: 36px;
+        /* Smaller for mobile */
     }
 
     .hero-actions {
         justify-content: center;
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        /* Full width buttons on mobile */
     }
 
     .hero-trust {
         justify-content: center;
+        margin-top: 24px;
     }
 
-    /* .mobile-reverse-layout .hero-visual {
-         If we wanted image first on mobile 
-    } */
+    /* Global Spacing */
+    .section {
+        padding: 48px 0;
+        /* Reduced padding */
+    }
 }
 
 /* Mobile Responsiveness for Team */
@@ -412,6 +509,17 @@ p {
 /* Pricing Section */
 .pricing-section {
     background-color: var(--color-bg-body);
+}
+
+.pricing-section .section-title,
+.pricing-section .section-subtitle,
+.pricing-section .pricing-price,
+.pricing-section .per-visit {
+    color: var(--color-text-primary);
+}
+
+.pricing-section .section-subtitle {
+    color: var(--color-text-secondary);
 }
 
 .pricing-grid {
@@ -610,6 +718,13 @@ p {
     border-radius: 24px;
     text-align: center;
     box-shadow: var(--shadow-md);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.insurance-card:hover,
+.financing-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-rich-hover);
 }
 
 .insurance-card h3,
@@ -638,6 +753,20 @@ p {
 /* Why Choose Us */
 .why-us-section {
     background-color: var(--color-bg-body);
+}
+
+.why-us-section .section-title,
+.why-us-section .feature-title {
+    color: var(--color-text-primary);
+}
+
+.why-us-section .section-subtitle,
+.why-us-section .feature-desc {
+    color: var(--color-text-secondary);
+}
+
+.why-us-section .feature-icon {
+    /* text-shadow removed */
 }
 
 .features-grid {
@@ -728,5 +857,23 @@ footer {
     .copyright {
         flex-direction: column;
         gap: 16px;
+        text-align: center;
+    }
+
+    .pricing-price {
+        font-size: 40px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .sticky-cta-wrapper .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .features-grid {
+        gap: 24px;
     }
 }
