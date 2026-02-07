@@ -800,6 +800,105 @@ p {
     line-height: 1.5;
 }
 
+/* Services Detail Page Styles */
+.services-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-detail-card {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.service-detail-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-rich-hover);
+}
+
+.service-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.service-icon {
+    font-size: 48px;
+    line-height: 1;
+}
+
+.service-detail-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.service-detail-description {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-bottom: 32px;
+}
+
+.service-detail-subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 16px;
+}
+
+.service-detail-features {
+    list-style: none;
+    margin-bottom: 32px;
+    flex-grow: 1;
+}
+
+.service-detail-features li {
+    margin-bottom: 12px;
+    padding-left: 32px;
+    position: relative;
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.service-detail-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .services-detailed-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-detail-card {
+        padding: 32px 24px;
+    }
+
+    .service-detail-title {
+        font-size: 24px;
+    }
+
+    .service-icon {
+        font-size: 36px;
+    }
+}
+
 /* Footer Section */
 footer {
     background-color: #1d1d1f;
