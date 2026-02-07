@@ -512,7 +512,7 @@ p {
     min-height: 85vh;
     display: flex;
     align-items: center;
-    padding-top: 30px;
+    padding-top: 12px;
     padding-bottom: 80px;
     /* Enhanced background with subtle gradient */
     background: linear-gradient(135deg, #ffffff 0%, #F0FDFA 100%);
@@ -757,7 +757,7 @@ p {
 /* Mobile Responsiveness for Hero - Enhanced */
 @media (max-width: 968px) {
     .hero-section {
-        padding-top: 20px;
+        padding-top: 8px;
         padding-bottom: 60px;
         min-height: auto;
     }
