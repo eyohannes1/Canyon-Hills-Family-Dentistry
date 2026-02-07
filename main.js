@@ -178,9 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
             navCallNow: 'Call Now',
 
             // Hero Section
-            heroTitle: 'New Patients Get<br><span class="highlight-squiggly">Free</span> Exam & X-Rays',
-            heroSubtitle: 'Transparent Pricing. Bilingual Staff. No Insurance Required.',
-            heroBookOnline: 'Book Online',
+            heroTitle: 'Book Your Free Exam & X-Rays Now',
+            heroSavings: '($400 Savings—Detect Issues Early)',
+            heroSubtitle: 'Complete oral exam, digital X-rays, and expert consultation worth $400—absolutely free for new patients. Discover what\'s really happening with your teeth and get a clear path to a healthier smile today.',
+            heroBookOnline: 'Book Appointment',
             heroSeeServices: 'See Services',
             heroTrustText: '50+ 5 Star Google Reviews',
 
@@ -327,9 +328,10 @@ document.addEventListener('DOMContentLoaded', () => {
             navCallNow: 'Llamar Ahora',
 
             // Hero Section
-            heroTitle: 'Pacientes Nuevos Reciben<br><span class="highlight-squiggly">Gratis</span> Examen y Rayos X',
-            heroSubtitle: 'Precios Transparentes. Personal Bilingüe. No Se Requiere Seguro.',
-            heroBookOnline: 'Reservar en Línea',
+            heroTitle: 'Reserve Su Examen y Rayos X Gratis Ahora',
+            heroSavings: '($400 de Ahorro—Detecte Problemas Temprano)',
+            heroSubtitle: 'Examen oral completo, rayos X digitales y consulta experta valorada en $400—absolutamente gratis para pacientes nuevos. Descubra lo que realmente sucede con sus dientes y obtenga un camino claro hacia una sonrisa más saludable hoy.',
+            heroBookOnline: 'Reservar Cita',
             heroSeeServices: 'Ver Servicios',
             heroTrustText: 'Más de 50 Reseñas de 5 Estrellas en Google',
 
@@ -487,12 +489,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hero Section (only on index.html)
         const heroTitle = document.querySelector('.hero-title');
+        const heroSavings = document.querySelector('.hero-content-wrapper h3');
         const heroSubtitle = document.querySelector('.hero-subtitle');
         const heroBookBtn = document.querySelector('.hero-actions .btn-primary');
         const heroServicesBtn = document.querySelector('.hero-actions .btn-secondary');
         const trustText = document.querySelector('.trust-text');
 
         if (heroTitle) heroTitle.innerHTML = t.heroTitle;
+        if (heroSavings) heroSavings.textContent = t.heroSavings;
         if (heroSubtitle) heroSubtitle.textContent = t.heroSubtitle;
         if (heroBookBtn) heroBookBtn.textContent = t.heroBookOnline;
         if (heroServicesBtn) heroServicesBtn.textContent = t.heroSeeServices;
