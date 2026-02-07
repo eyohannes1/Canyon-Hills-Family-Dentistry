@@ -111,7 +111,7 @@
 
 #### Section Spacing
 - ✅ **Increased min-height** - Changed from 80vh to 85vh
-- ✅ **Better padding** - Top: 60px, Bottom: 80px
+- ✅ **Better padding** - Top: 30px, Bottom: 80px
 - ✅ **Optimized gap** - Increased grid gap from 60px to 80px
 - ✅ **Removed bottom padding** - Cleaner section transition
 
@@ -344,7 +344,7 @@ This optimization follows the skill's core principles:
 - ✅ Tested on light background
 
 #### Layout
-- ✅ Proper spacing from edges (60px top, 80px bottom)
+- ✅ Proper spacing from edges (30px top, 80px bottom)
 - ✅ No content hidden behind fixed navbar
 - ✅ Responsive at all breakpoints (375px, 768px, 1024px, 1440px)
 - ✅ No horizontal scroll on mobile
