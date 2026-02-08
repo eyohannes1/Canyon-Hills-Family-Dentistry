@@ -1607,6 +1607,8 @@ footer {
     padding: 40px;
     display: flex;
     flex-direction: column;
+    scroll-margin-top: 100px;
+    /* Offset for sticky navbar */
 }
 
 .service-detail-header {
