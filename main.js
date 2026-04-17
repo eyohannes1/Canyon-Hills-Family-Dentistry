@@ -139,20 +139,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        if ('IntersectionObserver' in window) {
-            const calObserver = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        loadCalWidget();
-                        obs.disconnect();
-                    }
-                });
-            }, { rootMargin: '200px' });
-            calObserver.observe(calContainer);
-        } else {
-            // Fallback: load after window load event
-            window.addEventListener('load', loadCalWidget);
-        }
+        const scheduleCalLoad = () => {
+            if ('IntersectionObserver' in window) {
+                const calObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            loadCalWidget();
+                            obs.disconnect();
+                        }
+                    });
+                }, { rootMargin: '200px' });
+                calObserver.observe(calContainer);
+            } else {
+                loadCalWidget();
+            }
+        };
+
+        if (document.readyState === 'complete') scheduleCalLoad();
+        else window.addEventListener('load', scheduleCalLoad);
     }
 
     // Hamburger Menu Logic

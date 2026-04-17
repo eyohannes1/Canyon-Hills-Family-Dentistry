@@ -53,14 +53,9 @@
     <!-- Preconnect to font origins for faster font fetch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Fonts (non-blocking via preload pattern) -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
 
     <!-- Stylesheet -->
-    <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
 
 
@@ -212,19 +207,9 @@
                 <div class="hero-content-wrapper reveal-on-scroll">
                     <div class="hero-trust">
                         <div class="avatars">
-                            <!-- Placeholder for avatars -->
-                            <picture>
-                                <source srcset="assets/images/avatar1.webp" type="image/webp">
-                                <img src="assets/images/avatar1.png" alt="Google Reviewer 1" class="avatar-circle" width="65" height="65" decoding="async" fetchpriority="high">
-                            </picture>
-                            <picture>
-                                <source srcset="assets/images/avatar2.webp" type="image/webp">
-                                <img src="assets/images/avatar2.jpg" alt="Google Reviewer 2" class="avatar-circle" width="65" height="65" decoding="async" fetchpriority="high">
-                            </picture>
-                            <picture>
-                                <source srcset="assets/images/avatar3.webp" type="image/webp">
-                                <img src="assets/images/avatar3.png" alt="Google Reviewer 3" class="avatar-circle" width="65" height="65" decoding="async" fetchpriority="high">
-                            </picture>
+                            <img src="assets/images/avatar1.png" alt="Google Reviewer 1" class="avatar-circle" width="40" height="40" decoding="async">
+                            <img src="assets/images/avatar2.jpg" alt="Google Reviewer 2" class="avatar-circle" width="40" height="40" decoding="async">
+                            <img src="assets/images/avatar3.png" alt="Google Reviewer 3" class="avatar-circle" width="40" height="40" decoding="async">
                         </div>
                         <div style="display: flex; align-items: center; gap: 6px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="#FBBF24"
@@ -259,15 +244,7 @@
                     <div class="cal-embed-container"
                         id="my-cal-inline-dental-appointment"
                         role="region"
-                        aria-label="Appointment booking calendar">
-                        <div class="cal-placeholder" aria-hidden="true">
-                            <div class="cal-placeholder-spinner"></div>
-                            <p class="cal-placeholder-text">Loading booking calendar…</p>
-                            <a href="https://cal.com/eliab-vxrwqa/dental-appointment"
-                                class="btn btn-primary cal-placeholder-fallback"
-                                target="_blank" rel="noopener noreferrer">Book Appointment</a>
-                        </div>
-                    </div>
+                        aria-label="Appointment booking calendar"></div>
                 </div>
             </div>
         </section>

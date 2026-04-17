@@ -886,49 +886,6 @@ p {
     position: relative;
 }
 
-.cal-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 600px;
-    gap: 16px;
-    padding: 32px;
-    text-align: center;
-}
-
-.cal-placeholder-spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid var(--color-border);
-    border-top-color: var(--color-primary);
-    border-radius: 50%;
-    animation: cal-spin 0.9s linear infinite;
-}
-
-@keyframes cal-spin {
-    to { transform: rotate(360deg); }
-}
-
-.cal-placeholder-text {
-    color: var(--color-text-primary);
-    font-family: var(--font-body);
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0;
-}
-
-.cal-placeholder-fallback {
-    margin-top: 8px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .cal-placeholder-spinner {
-        animation: none;
-    }
-}
-
 .hero-image {
     width: 100%;
     max-width: 650px;
