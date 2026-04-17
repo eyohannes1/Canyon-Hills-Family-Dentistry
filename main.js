@@ -179,11 +179,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Hero Section
             heroTitle: 'Book Your Free Exam & X-Rays Now',
-            heroSavings: '($400 Savings—Detect Issues Early)',
-            heroSubtitle: 'Complete oral exam, digital X-rays, and expert consultation worth $400—absolutely free for new patients. Discover what\'s really happening with your teeth and get a clear path to a healthier smile today.',
+            heroSavings: '',
+            heroSubtitle: 'Dentist in Phoenix, AZ. Dentist, dental hygienist, and dental clinic fit for the whole family. Now accepting new patients in Phoenix. Book your appointment today.',
             heroBookOnline: 'Book Appointment',
-            heroSeeServices: 'See Services',
             heroTrustText: '50+ 5 Star Google Reviews',
+            googleReviewsLabel: 'Google Reviews',
+            googleReviewsCount: 'Based on 50+ reviews',
 
             // Testimonials Section
             testimonialsTitle: 'Real Words from<br>Real Patients.',
@@ -329,11 +330,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Hero Section
             heroTitle: 'Reserve Su Examen y Rayos X Gratis Ahora',
-            heroSavings: '($400 de Ahorro—Detecte Problemas Temprano)',
-            heroSubtitle: 'Examen oral completo, rayos X digitales y consulta experta valorada en $400—absolutamente gratis para pacientes nuevos. Descubra lo que realmente sucede con sus dientes y obtenga un camino claro hacia una sonrisa más saludable hoy.',
+            heroSavings: '',
+            heroSubtitle: 'Examen oral completo, rayos X digitales y consulta experta gratis para pacientes nuevos. Descubra lo que realmente sucede con sus dientes y obtenga un camino claro hacia una sonrisa más saludable hoy.',
             heroBookOnline: 'Reservar Cita',
-            heroSeeServices: 'Ver Servicios',
             heroTrustText: 'Más de 50 Reseñas de 5 Estrellas en Google',
+            googleReviewsLabel: 'Reseñas de Google',
+            googleReviewsCount: 'Basado en más de 50 reseñas',
 
             // Testimonials Section
             testimonialsTitle: 'Palabras Reales de<br>Pacientes Reales.',
@@ -492,15 +494,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroSavings = document.querySelector('.hero-content-wrapper h3');
         const heroSubtitle = document.querySelector('.hero-subtitle');
         const heroBookBtn = document.querySelector('.hero-actions .btn-primary');
-        const heroServicesBtn = document.querySelector('.hero-actions .btn-secondary');
         const trustText = document.querySelector('.trust-text');
 
         if (heroTitle) heroTitle.innerHTML = t.heroTitle;
         if (heroSavings) heroSavings.textContent = t.heroSavings;
         if (heroSubtitle) heroSubtitle.textContent = t.heroSubtitle;
         if (heroBookBtn) heroBookBtn.textContent = t.heroBookOnline;
-        if (heroServicesBtn) heroServicesBtn.textContent = t.heroSeeServices;
-        if (trustText) trustText.textContent = t.heroTrustText;
+        if (trustText) {
+            const count = window._googleReviewCount || '50+';
+            const rating = document.querySelector('.pill-rating')?.textContent || '5';
+            trustText.textContent = lang === 'es'
+                ? `Más de ${count} Reseñas de ${rating} Estrellas en Google`
+                : `${count}+ ${rating} Star Google Reviews`;
+        }
+
+        // Google Reviews Pill Widget
+        const googleReviewsCount = document.querySelector('.pill-meta');
+        if (googleReviewsCount) {
+            const count = window._googleReviewCount || '50+';
+            googleReviewsCount.textContent = lang === 'es'
+                ? `${count}+ reseñas`
+                : `${count}+ reviews`;
+        }
 
         // Testimonials Section (only on index.html)
         const testimonialsTitle = document.querySelector('.testimonials-section .section-title');
@@ -804,4 +819,72 @@ document.addEventListener('DOMContentLoaded', () => {
         // Start initial timer (10 seconds)
         startHideTimer();
     }
+
+    // --- Google Reviews Live Data ---
+    function renderPillStars(containerId, rating) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        const fullStars = Math.floor(rating);
+        const partial = rating - fullStars;
+        const starColor = '#FBBC05';
+        const emptyColor = '#DAD8D3';
+        let html = '';
+        for (let i = 0; i < 5; i++) {
+            if (i < fullStars) {
+                html += `<svg viewBox="0 0 20 20"><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.27 5.06 16.7 6 11.21l-4-3.9 5.53-.8L10 1.5z" fill="${starColor}"/></svg>`;
+            } else if (i === fullStars && partial > 0) {
+                const pct = Math.round(partial * 100);
+                html += `<svg viewBox="0 0 20 20"><defs><linearGradient id="partial-${containerId}"><stop offset="${pct}%" stop-color="${starColor}"/><stop offset="${pct}%" stop-color="${emptyColor}"/></linearGradient></defs><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.27 5.06 16.7 6 11.21l-4-3.9 5.53-.8L10 1.5z" fill="url(#partial-${containerId})"/></svg>`;
+            } else {
+                html += `<svg viewBox="0 0 20 20"><path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.49L10 14.27 5.06 16.7 6 11.21l-4-3.9 5.53-.8L10 1.5z" fill="${emptyColor}"/></svg>`;
+            }
+        }
+        container.innerHTML = html;
+    }
+
+    // Render initial stars
+    renderPillStars('widget-stars', 5.0);
+
+    async function loadGoogleReviews() {
+        try {
+            const res = await fetch('/api/reviews');
+            if (!res.ok) throw new Error('API error');
+            const data = await res.json();
+
+            const scoreEl = document.querySelector('.pill-rating');
+            const countEl = document.querySelector('.pill-meta');
+            const trustText = document.querySelector('.trust-text');
+
+            if (scoreEl && data.rating) {
+                scoreEl.textContent = data.rating.toFixed(1);
+            }
+
+            if (data.rating) {
+                renderPillStars('widget-stars', data.rating);
+            }
+
+            if (data.reviewCount) {
+                window._googleReviewCount = data.reviewCount;
+                const lang = document.documentElement.lang || 'en';
+
+                if (countEl) {
+                    countEl.textContent = lang === 'es'
+                        ? `${data.reviewCount}+ reseñas`
+                        : `${data.reviewCount}+ reviews`;
+                }
+
+                if (trustText) {
+                    const rating = data.rating ? data.rating.toFixed(1) : '5';
+                    trustText.textContent = lang === 'es'
+                        ? `Más de ${data.reviewCount} Reseñas de ${rating} Estrellas en Google`
+                        : `${data.reviewCount}+ ${rating} Star Google Reviews`;
+                }
+            }
+        } catch (e) {
+            console.warn('Google Reviews fetch failed, using fallback values');
+        }
+    }
+
+    loadGoogleReviews();
+
 });

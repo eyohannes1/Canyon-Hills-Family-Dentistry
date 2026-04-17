@@ -1,0 +1,651 @@
+commit 7104c3dd7f56a5b55c6feac6352a3687ac715c1b
+Author: eliab <hoop.code23@gmail.com>
+Date:   Fri Feb 6 18:14:51 2026 -0700
+
+    Cannon Hills Family Dentistry V4
+
+diff --git a/index.html b/index.html
+index f66bf63..c638690 100644
+--- a/index.html
++++ b/index.html
+@@ -4,184 +4,247 @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Canyon Hills Family Dentistry - Quality Care for Your Family</title>
++
++    <!-- Primary Meta Tags -->
++    <title>Canyon Hills Family Dentistry | Dentist in Phoenix, AZ | Dr. Daniel Yohannes</title>
++    <meta name="title" content="Canyon Hills Family Dentistry | Dentist in Phoenix, AZ | Dr. Daniel Yohannes">
+     <meta name="description"
+-        content="Book your dental appointment today. Trusted family dentistry with transparent pricing and gentle care.">
++        content="Trusted family dentist in Phoenix, AZ. Free exam & X-rays for new patients. Bilingual staff (English/Spanish). Transparent pricing, no insurance required. Call (623) 632-0284.">
++    <meta name="keywords"
++        content="dentist Phoenix AZ, family dentistry Phoenix, bilingual dentist, Spanish speaking dentist Phoenix, dental exam Phoenix, teeth cleaning Phoenix, root canal Phoenix, teeth whitening Phoenix, affordable dentist Phoenix, no insurance dentist">
++    <meta name="author" content="Dr. Daniel Yohannes, DDS">
++    <meta name="robots" content="index, follow">
++    <meta name="language" content="English">
++    <meta name="revisit-after" content="7 days">
++
++    <!-- Canonical URL -->
++    <link rel="canonical" href="https://canyonhillsfamilydentistry.com/">
++
++    <!-- Open Graph / Facebook -->
++    <meta property="og:type" content="website">
++    <meta property="og:url" content="https://canyonhillsfamilydentistry.com/">
++    <meta property="og:title" content="Canyon Hills Family Dentistry | Dentist in Phoenix, AZ">
++    <meta property="og:description"
++        content="Trusted family dentist in Phoenix, AZ. Free exam & X-rays for new patients. Bilingual staff (English/Spanish). Transparent pricing.">
++    <meta property="og:image" content="https://canyonhillsfamilydentistry.com/assets/images/CHFD-LOGO.png">
++    <meta property="og:locale" content="en_US">
++    <meta property="og:site_name" content="Canyon Hills Family Dentistry">
++
++    <!-- Twitter Card -->
++    <meta name="twitter:card" content="summary_large_image">
++    <meta name="twitter:url" content="https://canyonhillsfamilydentistry.com/">
++    <meta name="twitter:title" content="Canyon Hills Family Dentistry | Dentist in Phoenix, AZ">
++    <meta name="twitter:description"
++        content="Trusted family dentist in Phoenix, AZ. Free exam & X-rays for new patients. Bilingual staff (English/Spanish).">
++    <meta name="twitter:image" content="https://canyonhillsfamilydentistry.com/assets/images/CHFD-LOGO.png">
++
++    <!-- Geo Tags -->
++    <meta name="geo.region" content="US-AZ">
++    <meta name="geo.placename" content="Phoenix">
++    <meta name="geo.position" content="33.611812;-112.138021">
++    <meta name="ICBM" content="33.611812, -112.138021">
++
++    <!-- Favicon - 32x32 optimal size -->
++    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
++    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
++    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
++    <link rel="shortcut icon" href="assets/images/favicon.ico">
++
++    <!-- Stylesheet -->
+     <link rel="stylesheet" href="style.css">
++
++
++    <!-- Structured Data (JSON-LD) -->
++    <script type="application/ld+json">
++    {
++      "@context": "https://schema.org",
++      "@type": "Dentist",
++      "@id": "https://canyonhillsfamilydentistry.com",
++      "name": "Canyon Hills Family Dentistry",
++      "image": "https://canyonhillsfamilydentistry.com/assets/images/CHFD-LOGO.png",
++      "url": "https://canyonhillsfamilydentistry.com",
++      "telephone": "+16236320284",
++      "priceRange": "$$",
++      "address": {
++        "@type": "PostalAddress",
++        "streetAddress": "13822 N 35th Dr #3",
++        "addressLocality": "Phoenix",
++        "addressRegion": "AZ",
++        "postalCode": "85053",
++        "addressCountry": "US"
++      },
++      "geo": {
++        "@type": "GeoCoordinates",
++        "latitude": 33.611812,
++        "longitude": -112.138021
++      },
++      "openingHoursSpecification": [
++        {
++          "@type": "OpeningHoursSpecification",
++          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
++          "opens": "09:00",
++          "closes": "18:00"
++        },
++        {
++          "@type": "OpeningHoursSpecification",
++          "dayOfWeek": "Saturday",
++          "opens": "08:00",
++          "closes": "15:00"
++        }
++      ],
++      "sameAs": [
++        "https://www.facebook.com/canyonhillsfamilydentistry",
++        "https://www.instagram.com/canyonhillsfamilydentistry"
++      ],
++      "aggregateRating": {
++        "@type": "AggregateRating",
++        "ratingValue": "5",
++        "reviewCount": "50"
++      },
++      "hasOfferCatalog": {
++        "@type": "OfferCatalog",
++        "name": "Dental Services",
++        "itemListElement": [
++          {
++            "@type": "Offer",
++            "itemOffered": {
++              "@type": "Service",
++              "name": "Dental Exam & X-Rays",
++              "description": "Comprehensive oral examination with full set of digital X-rays"
++            }
++          },
++          {
++            "@type": "Offer",
++            "itemOffered": {
++              "@type": "Service",
++              "name": "Teeth Cleaning",
++              "description": "Professional dental cleaning and oral hygiene instruction"
++            }
++          },
++          {
++            "@type": "Offer",
++            "itemOffered": {
++              "@type": "Service",
++              "name": "Root Canal Therapy",
++              "description": "Pain relief treatment to save your natural tooth"
++            }
++          },
++          {
++            "@type": "Offer",
++            "itemOffered": {
++              "@type": "Service",
++              "name": "Teeth Whitening",
++              "description": "Professional in-office whitening treatment"
++            }
++          }
++        ]
++      },
++      "makesOffer": [
++        {
++          "@type": "Offer",
++          "name": "New Patient Special",
++          "description": "Free Exam & X-Rays for New Patients",
++          "price": "0",
++          "priceCurrency": "USD"
++        }
++      ]
++    }
++    </script>
+ </head>
+ 
+ <body>
++    <!-- Skip Link for Keyboard Navigation -->
++    <a href="#main-content" class="skip-link">Skip to main content</a>
+ 
+ 
+     <!-- Navigation -->
+-    <nav
+-        style="position: sticky; top: 0; padding: 20px 0; background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); z-index: 100;">
+-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+-            <div class="logo" style="font-weight: 600; font-size: 21px;">Canyon Hills Dentistry</div>
+-            <div class="links" style="display: flex; gap: 24px;">
+-                <a href="#team"
+-                    style="text-decoration: none; color: var(--color-text-primary); font-size: 14px;">Team</a>
+-                <a href="#pricing"
+-                    style="text-decoration: none; color: var(--color-text-primary); font-size: 14px;">Pricing</a>
+-                <a href="#testimonials"
+-                    style="text-decoration: none; color: var(--color-text-primary); font-size: 14px;">Stories</a>
++    <nav class="navbar">
++        <div class="container navbar-container">
++            <div class="logo">Canyon Hills Family Dentistry</div>
++
++            <div class="nav-menu">
++                <a href="#team" class="nav-link">Team</a>
++                <div class="nav-dropdown">
++                    <a href="services.html" class="nav-link nav-dropdown-toggle">Services</a>
++                    <div class="nav-dropdown-menu">
++                        <a href="services.html" class="nav-dropdown-item">All Services</a>
++                        <a href="services.html#exam-xray" class="nav-dropdown-item">Dental Exam & X-ray</a>
++                        <a href="services.html#root-canal" class="nav-dropdown-item">Root Canal Therapy</a>
++                        <a href="services.html#whitening" class="nav-dropdown-item">Teeth Whitening</a>
++                        <a href="services.html#cleaning" class="nav-dropdown-item">Teeth Cleaning</a>
++                        <a href="services.html#crowns-bridges" class="nav-dropdown-item">Crowns and Bridges</a>
++                        <a href="services.html#implant-crowns" class="nav-dropdown-item">Dental Implant Crowns</a>
++                        <a href="services.html#dentures" class="nav-dropdown-item">Dentures</a>
++                        <a href="services.html#night-guard" class="nav-dropdown-item">Occlusal Night Guard</a>
++                        <a href="services.html#clear-aligners" class="nav-dropdown-item">Clear Aligners</a>
++                    </div>
++                </div>
++                <a href="#testimonials" class="nav-link">Stories</a>
++                <a href="#faq" class="nav-link">FAQ</a>
++            </div>
++
++            <div class="nav-right">
++                <a href="tel:6236320284" class="btn btn-primary nav-btn">Call Now</a>
++                <button class="hamburger" aria-label="Menu">
++                    <span></span>
++                    <span></span>
++                    <span></span>
++                </button>
+             </div>
+-            <a href="#book" class="btn btn-primary" style="padding: 8px 16px; font-size: 14px;">Book Now</a>
+         </div>
+     </nav>
+ 
+-    <main>
++    <main id="main-content">
+         <!-- Hero Section -->
+         <section class="hero-section section">
+-            <div class="container mobile-reverse-layout">
+-                <div class="hero-content reveal-on-scroll">
+-                    <!-- Badge removed -->
+-                    <h1 class="hero-title">Affordable Dental Care<br>for Your Family.</h1>
+-                    <p class="hero-subtitle">Transparent Pricing. Bilingual Staff. No Insurance Required.<br>We welcome
+-                        all people no matter their background.
+-                    </p>
+-                    <div class="hero-actions">
+-                        <a href="#book" class="btn btn-primary">Book Online</a>
+-                        <a href="#pricing" class="btn btn-secondary">See Prices</a>
+-                    </div>
++            <div class="container hero-container">
++                <!-- Left Column: Text Content -->
++                <div class="hero-content-wrapper reveal-on-scroll">
+                     <div class="hero-trust">
+                         <div class="avatars">
+                             <!-- Placeholder for avatars -->
+-                            <div class="avatar-circle" style="background: #e1e1e1;"></div>
+-                            <div class="avatar-circle" style="background: #d1d1d1;"></div>
+-                            <div class="avatar-circle" style="background: #c1c1c1;"></div>
++                            <img src="assets/images/avatar1.png" alt="Google Reviewer 1" class="avatar-circle">
++                            <img src="assets/images/avatar2.jpg" alt="Google Reviewer 2" class="avatar-circle">
++                            <img src="assets/images/avatar3.png" alt="Google Reviewer 3" class="avatar-circle">
+                         </div>
+-                        <span class="trust-text">5.0 Star Google Reviews</span>
++                        <span class="trust-text">50+ 5 Star Google Reviews</span>
+                     </div>
+-                </div>
+-                <div class="hero-visual reveal-on-scroll">
+-                    <img src="assets/images/hero.png" alt="Happy family smiling with healthy teeth" class="hero-image">
+-                </div>
+-            </div>
+-        </section>
+ 
+-        <!-- Team Section -->
+-        <section id="team" class="section team-section">
+-            <div class="container">
+-                <div class="section-header reveal-on-scroll">
+-                    <h2 class="section-title">Meet the People<br>Behind Your Smile.</h2>
+-                    <p class="section-subtitle">Our bilingual team is dedicated to providing gentle, high-quality care
+-                        for your entire family.</p>
+-                </div>
+-
+-                <div class="team-grid">
+-                    <!-- Doctor 1 -->
+-                    <div class="card team-card reveal-on-scroll">
+-                        <div class="team-photo-wrapper">
+-                            <!-- Placeholder - ideally real photo -->
+-                            <div class="team-photo-placeholder" style="background-color: #dbeafe;"></div>
+-                        </div>
+-                        <div class="team-info">
+-                            <h3 class="team-name">Dr. Daniel Yohannes</h3>
+-                            <p class="team-role">Lead Dentist</p>
+-                            <span class="team-badge">???????? Se Habla Espa??ol</span>
+-                            <p class="team-bio">Passionate about pediatric care and making kids feel safe. Dr. Yohannes
+-                                has over 10 years of experience.</p>
+-                        </div>
+-                    </div>
++                    <h1 class="hero-title">Book Your Free Exam & X-Rays Now
++                    </h1>
++                    <h3>($400 Savings???Detect Issues Early)</h3>
+ 
+-                    <!-- Doctor 2 -->
+-                    <div class="card team-card reveal-on-scroll">
+-                        <div class="team-photo-wrapper">
+-                            <div class="team-photo-placeholder" style="background-color: #fae8ff;"></div>
+-                        </div>
+-                        <div class="team-info">
+-                            <h3 class="team-name">Maria Rodriguez</h3>
+-                            <p class="team-role">Senior Hygienist</p>
+-                            <span class="team-badge">???????? Se Habla Espa??ol</span>
+-                            <p class="team-bio">Maria has been making cleanings fun and stress-free for 10 years. She
+-                                loves educating patients.</p>
+-                        </div>
++                    <div class="hero-subtitle-wrapper">
++                        <p class="hero-subtitle">Complete oral exam, digital X-rays, and expert consultation worth
++                            $400???absolutely free for new patients. Discover what's really happening with your teeth and
++                            get a clear path to a healthier smile today.</p>
+                     </div>
+ 
+-                    <!-- Doctor 3 -->
+-                    <div class="card team-card reveal-on-scroll">
+-                        <div class="team-photo-wrapper">
+-                            <div class="team-photo-placeholder" style="background-color: #e0f2fe;"></div>
+-                        </div>
+-                        <div class="team-info">
+-                            <h3 class="team-name">James Smith</h3>
+-                            <p class="team-role">Office Manager</p>
+-                            <p class="team-bio">Here to help with your billing questions and insurance claims. James
+-                                makes the paperwork easy.</p>
+-                        </div>
+-                    </div>
+-                    <!-- Doctor 4 -->
+-                    <div class="card team-card reveal-on-scroll">
+-                        <div class="team-photo-wrapper">
+-                            <div class="team-photo-placeholder" style="background-color: #ccfbf1;"></div>
+-                        </div>
+-                        <div class="team-info">
+-                            <h3 class="team-name">Dr. Elena Garcia</h3>
+-                            <p class="team-role">Orthodontist</p>
+-                            <span class="team-badge">???????? Se Habla Espa??ol</span>
+-                            <p class="team-bio">Specializing in creating beautiful, confident smiles with braces and
+-                                Invisalign.</p>
+-                        </div>
++                    <div class="hero-actions">
++                        <a href="services.html" class="btn btn-secondary">See Services</a>
++                        <a href="https://cal.com/eliab-vxrwqa/dental-appointment" class="btn btn-primary"
++                            target="_blank" rel="noopener noreferrer">Book Appointment</a>
+                     </div>
+                 </div>
+-            </div>
+-        </section>
+ 
+-        <!-- Pricing Section -->
+-        <section id="pricing" class="section pricing-section">
+-            <div class="container">
+-                <div class="section-header reveal-on-scroll">
+-                    <h2 class="section-title">Transparent Pricing.<br>No Surprises.</h2>
+-                    <p class="section-subtitle">Know exactly what you pay before you sit in the chair. No hidden fees.
+-                    </p>
+-                </div>
++                <!-- Right Column: Cal.com Booking Calendar -->
++                <div class="hero-image-wrapper reveal-on-scroll">
++                    <!-- Cal inline embed code begins -->
++                    <div style="width:100%;height:100%;min-height:600px;overflow:scroll;border-radius:12px;"
++                        id="my-cal-inline-dental-appointment"></div>
++                    <script type="text/javascript">
++                        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
++                        Cal("init", "dental-appointment", { origin: "https://app.cal.com" });
+ 
+-                <div class="pricing-grid">
+-                    <!-- Standard Cleaning -->
+-                    <div class="card pricing-card reveal-on-scroll">
+-                        <div class="pricing-header">
+-                            <h3 class="pricing-title">Cleaning / Limpieza</h3>
+-                            <span class="pricing-tag popular">Most Popular</span>
+-                        </div>
+-                        <div class="pricing-price">$99<span class="per-visit">/visit</span></div>
+-                        <ul class="pricing-features">
+-                            <li>Routine adult cleaning</li>
+-                            <li>Oral hygiene instruction</li>
+-                            <li><span class="icon">???</span> Limpieza de rutina para adultos</li>
+-                        </ul>
+-                        <a href="#book" class="btn btn-outline">Book Cleaning</a>
+-                    </div>
++                        Cal.ns["dental-appointment"]("inline", {
++                            elementOrSelector: "#my-cal-inline-dental-appointment",
++                            config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
++                            calLink: "eliab-vxrwqa/dental-appointment",
++                        });
+ 
+-                    <!-- Exam & X-Rays -->
+-                    <div class="card pricing-card highlight reveal-on-scroll">
+-                        <div class="pricing-header">
+-                            <h3 class="pricing-title">Exam & X-Rays</h3>
+-                            <span class="pricing-tag value">Best Value</span>
+-                        </div>
+-                        <div class="pricing-price">$120<span class="per-visit">/visit</span></div>
+-                        <ul class="pricing-features">
+-                            <li>Comprehensive oral exam</li>
+-                            <li>Full set of digital X-rays</li>
+-                            <li><span class="icon">????</span> Examen completo y radiograf??as</li>
+-                        </ul>
+-                        <a href="#book" class="btn btn-primary full-width">Book Exam</a>
+-                    </div>
+-
+-                    <!-- Whitening -->
+-                    <div class="card pricing-card reveal-on-scroll">
+-                        <div class="pricing-header">
+-                            <h3 class="pricing-title">Whitening</h3>
+-                            <span class="pricing-tag cosmetic">Cosmetic</span>
+-                        </div>
+-                        <div class="pricing-price">$250<span class="per-visit">/session</span></div>
+-                        <ul class="pricing-features">
+-                            <li>In-office professional whitening</li>
+-                            <li>Up to 4 shades brighter</li>
+-                            <li><span class="icon">????</span> Blanqueamiento profesional</li>
+-                        </ul>
+-                        <a href="#book" class="btn btn-outline">Book Whitening</a>
+-                    </div>
++                        Cal.ns["dental-appointment"]("ui", { "cssVarsPerTheme": { "light": { "cal-brand": "#292929" }, "dark": { "cal-brand": "#176ea5" } }, "hideEventTypeDetails": false, "layout": "month_view" });
++                    </script>
++                    <!-- Cal inline embed code ends -->
+                 </div>
+             </div>
+         </section>
+@@ -191,7 +254,7 @@
+             <div class="container">
+                 <div class="section-header reveal-on-scroll">
+                     <h2 class="section-title">Real Words from<br>Real Patients.</h2>
+-                    <p class="section-subtitle">See why families in Austin trust us with their smiles.</p>
++                    <p class="section-subtitle">See why families in Arizona trust us with their smiles.</p>
+                 </div>
+ 
+                 <div class="testimonials-grid">
+@@ -202,8 +265,11 @@
+                             years ago and don't live nearby anymore. The staff is terrific and Dr. Yohannes knows his
+                             stuff. Highly recommended!"</p>
+                         <div class="testimonial-author">
+-                            <cite>Anthony Pierson</cite>
+-                            <span class="testimonial-source">Google Review</span>
++                            <div class="author-info">
++                                <cite>Anthony Pierson</cite>
++                                <span class="testimonial-source">Google Review</span>
++                            </div>
++                            <img src="assets/images/review-anthony.png" alt="Anthony Pierson" class="author-photo">
+                         </div>
+                     </div>
+ 
+@@ -213,8 +279,11 @@
+                         <p class="testimonial-text">"I was nervous about the cost, but their pricing is so transparent.
+                             Excellent service and very honest people."</p>
+                         <div class="testimonial-author">
+-                            <cite>Carlos Hernandez</cite>
+-                            <span class="testimonial-source">Google Review</span>
++                            <div class="author-info">
++                                <cite>Carlos Hernandez</cite>
++                                <span class="testimonial-source">Google Review</span>
++                            </div>
++                            <img src="assets/images/review-carlos.png" alt="Carlos Hernandez" class="author-photo">
+                         </div>
+                     </div>
+ 
+@@ -228,84 +297,129 @@
+                             economical plan to fix the dental problem, unlike other dentists I have visited. Dr.
+                             Yohannes is truly one of a kind."</p>
+                         <div class="testimonial-author">
+-                            <cite>Resume R.</cite>
+-                            <span class="testimonial-source">Yelp Review</span>
++                            <div class="author-info">
++                                <cite>Resume R.</cite>
++                                <span class="testimonial-source">Yelp Review</span>
++                            </div>
++                            <img src="assets/images/review-resume.jpg" alt="Resume R." class="author-photo">
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
+ 
+-        <!-- Why Choose Us -->
+-        <section id="why-us" class="section why-us-section">
++        <!-- Team Section -->
++        <section id="team" class="section team-section">
+             <div class="container">
+                 <div class="section-header reveal-on-scroll">
+-                    <h2 class="section-title">Why Families Choose Us.</h2>
+-                    <p class="section-subtitle">We don't just fix teeth. We care for people.</p>
++                    <h2 class="section-title">Meet<br>Dr. Yohannes.</h2>
++                    <p class="section-subtitle">Get to know the dentist behind the smiles.</p>
+                 </div>
+ 
+-                <div class="features-grid">
+-                    <div class="feature-item reveal-on-scroll">
+-                        <div class="feature-icon">???</div>
+-                        <h3 class="feature-title">Modern Technology</h3>
+-                        <p class="feature-desc">Low-radiation digital X-rays and intraoral cameras so you see what we
+-                            see.</p>
+-                    </div>
+-                    <div class="feature-item reveal-on-scroll">
+-                        <div class="feature-icon">????</div>
+-                        <h3 class="feature-title">Anxiety-Free Comfort</h3>
+-                        <p class="feature-desc">Sedation options, blankets, and noise-canceling headphones for a
+-                            relaxing visit.</p>
+-                    </div>
+-                    <div class="feature-item reveal-on-scroll">
+-                        <div class="feature-icon">????</div>
+-                        <h3 class="feature-title">Same-Day Emergencies</h3>
+-                        <p class="feature-desc">Dental pain can't wait. We keep slots open daily for emergency care.</p>
+-                    </div>
+-                    <div class="feature-item reveal-on-scroll">
+-                        <div class="feature-icon">????</div>
+-                        <h3 class="feature-title">Honest & Conservative</h3>
+-                        <p class="feature-desc">We never push unnecessary treatments. You get honest advice, always.</p>
++                <div class="team-grid">
++                    <!-- Doctor 1 -->
++                    <div class="card team-card featured-doctor-card reveal-on-scroll">
++                        <div class="team-photo-wrapper">
++                            <img src="assets/images/dr-daniel-yohannes.jpg" alt="Dr. Daniel Yohannes, DDS"
++                                class="team-photo">
++                        </div>
++                        <div class="team-info">
++                            <h3 class="team-name">Dr. Daniel Yohannes</h3>
++                            <p class="team-role">Lead Dentist</p>
++                            <span class="team-badge">Se Habla Espa??ol</span>
++                            <p class="team-bio">Dr. Yohannes is the owner of Canyon Hills Family Dentistry. He graduated
++                                from Howard Dental School and combines advanced
++                                dental expertise with a welcoming, compassionate approach. Dr. Yohannes is committed to
++                                providing exceptional care to patients of all ages, making every visit comfortable and
++                                stress-free.</p>
++                        </div>
+                     </div>
++
++
+                 </div>
+             </div>
+         </section>
+ 
+-        <!-- Insurance & Financing -->
+-        <section id="insurance" class="section insurance-section">
++
++
++
++        <!-- FAQ Section -->
++        <section id="faq" class="section faq-section">
+             <div class="container">
+                 <div class="section-header reveal-on-scroll">
+-                    <h2 class="section-title">Insurance & Financing</h2>
+-                    <p class="section-subtitle">We make quality care accessible for everyone.</p>
++                    <h2 class="section-title">Frequently Asked Questions</h2>
++                    <p class="section-subtitle">Got questions? We have answers.</p>
+                 </div>
+ 
+-                <div class="insurance-content reveal-on-scroll">
+-                    <div class="insurance-card">
+-                        <h3>We Accept PPO Insurance</h3>
+-                        <p>We are in-network with most major providers including Delta, Cigna, MetLife, Aetna, and Blue
+-                            Cross Blue Shield.</p>
++                <div class="faq-accordion reveal-on-scroll">
++                    <!-- Item 1 -->
++                    <div class="faq-item">
++                        <button class="faq-question">
++                            Do you accept my insurance?
++                            <span class="icon">+</span>
++                        </button>
++                        <div class="faq-answer">
++                            <p>We accept all insurances.</p>
++                        </div>
++                    </div>
++
++                    <!-- Item 2 -->
++                    <div class="faq-item">
++                        <button class="faq-question">
++                            How do I make an appointment?
++                            <span class="icon">+</span>
++                        </button>
++                        <div class="faq-answer">
++                            <p>You can book online seamlessly by clicking the "Book Appointment" button or call us
++                                directly during business hours.</p>
++                        </div>
+                     </div>
+ 
+-                    <div class="financing-card">
+-                        <h3>Flexible Payment Options</h3>
+-                        <p>No insurance? No problem. We offer flexible monthly payment plans.</p>
+-                        <div class="financing-logos">
+-                            <span class="badgex">Sunbit</span>
+-                            <span class="badgex">CareCredit</span>
+-                            <span class="badgex">LendingClub</span>
++                    <!-- Item 3 -->
++                    <div class="faq-item">
++                        <button class="faq-question">
++                            Do you accept children?
++                            <span class="icon">+</span>
++                        </button>
++                        <div class="faq-answer">
++                            <p>Yes! We are a family practice and love seeing kids 3 and above. Dr. Yohannes is great at
++                                making
++                                children feel comfortable and safe.</p>
+                         </div>
+                     </div>
++
++                    <!-- Item 4 -->
++                    <div class="faq-item">
++                        <button class="faq-question">
++                            What if I have an emergency?
++                            <span class="icon">+</span>
++                        </button>
++                        <div class="faq-answer">
++                            <p>We reserve time daily for emergencies. Please call us immediately at (623) 632-0284 and
++                                we will do our best to get you in the same day.</p>
++                        </div>
++                    </div>
++                </div>
++            </div>
++        </section>
++        <!-- Ready For Your Visit CTA Section -->
++        <section class="section ready-visit-section">
++            <div class="container">
++                <div class="ready-visit-content reveal-on-scroll">
++                    <h2 class="ready-visit-title">Ready For Your Visit?</h2>
++                    <a href="https://cal.com/eliab-vxrwqa/dental-appointment" class="btn btn-primary btn-large"
++                        target="_blank" rel="noopener noreferrer">Book Appointment</a>
+                 </div>
+             </div>
+         </section>
+     </main>
+ 
+     <!-- Footer -->
+-    <footer>
++    <footer id="book">
+         <div class="container">
+             <div class="footer-grid">
+                 <div class="footer-col">
+-                    <h4>Canyon Hills Dentistry</h4>
++                    <h4>Canyon Hills Family Dentistry</h4>
+                     <p>Quality care for the whole family in English and Spanish.</p>
+                     <div style="margin-top: 16px;">
+                         <a href="#">Facebook</a>
+@@ -316,13 +430,12 @@
+                     <h4>Quick Links</h4>
+                     <a href="#">Home</a>
+                     <a href="#team">Our Team</a>
+-                    <a href="#pricing">Pricing</a>
+-                    <a href="#insurance">Insurance</a>
++                    <a href="services.html">Services</a>
+                 </div>
+                 <div class="footer-col">
+                     <h4>Visit Us</h4>
+                     <p>13822 N 35th Dr #3<br>Phoenix, AZ 85053</p>
+-                    <p><a href="tel:6235167766">(623) 516-7766</a></p>
++                    <p><a href="tel:6236320284">(623) 632-0284</a></p>
+                     <p>Mon-Fri: 9am - 6pm<br>Sat: 8am - 3pm</p>
+                 </div>
+                 <div class="footer-col">
+@@ -343,9 +456,11 @@
+         </div>
+     </footer>
+ 
+-    <!-- Sticky Mobile/Desktop CTA (Always visual reinforcement) -->
++    <!-- Language Toggle Sticky Button -->
+     <div class="sticky-cta-wrapper">
+-        <a href="#book" class="btn btn-primary" style="padding: 16px 32px; font-size: 19px;">Book Appointment</a>
++        <button id="languageToggle" class="btn btn-primary language-toggle-btn">
++            ES
++        </button>
+     </div>
+ 
+     <script src="main.js"></script>
