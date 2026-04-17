@@ -501,6 +501,12 @@ p {
 }
 
 
+/* Hero section always visible — never hide above-the-fold content behind JS */
+.hero-section .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+}
+
 /* Animation Classes */
 .reveal-on-scroll {
     opacity: 0;
