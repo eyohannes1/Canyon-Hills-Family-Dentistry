@@ -73,15 +73,87 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Sticky Navbar Scroll Effect
+    // Sticky Navbar Scroll Effect (rAF-throttled to avoid forced reflow)
     const navbar = document.querySelector('.navbar');
+    let navScrollTicking = false;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            navbar.classList.add('nav-scrolled');
-        } else {
-            navbar.classList.remove('nav-scrolled');
+        if (!navScrollTicking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+                navScrollTicking = false;
+            });
+            navScrollTicking = true;
         }
-    });
+    }, { passive: true });
+
+    // Cal.com Booking Widget - Lazy load on scroll-into-view
+    const calContainer = document.getElementById('my-cal-inline-dental-appointment');
+    if (calContainer) {
+        let calLoaded = false;
+        const loadCalWidget = () => {
+            if (calLoaded) return;
+            calLoaded = true;
+            (function (C, A, L) {
+                let p = function (a, ar) { a.q.push(ar); };
+                let d = C.document;
+                C.Cal = C.Cal || function () {
+                    let cal = C.Cal;
+                    let ar = arguments;
+                    if (!cal.loaded) {
+                        cal.ns = {};
+                        cal.q = cal.q || [];
+                        d.head.appendChild(d.createElement("script")).src = A;
+                        cal.loaded = true;
+                    }
+                    if (ar[0] === L) {
+                        const api = function () { p(api, arguments); };
+                        const namespace = ar[1];
+                        api.q = api.q || [];
+                        if (typeof namespace === "string") {
+                            cal.ns[namespace] = cal.ns[namespace] || api;
+                            p(cal.ns[namespace], ar);
+                            p(cal, ["initNamespace", namespace]);
+                        } else {
+                            p(cal, ar);
+                        }
+                        return;
+                    }
+                    p(cal, ar);
+                };
+            })(window, "https://app.cal.com/embed/embed.js", "init");
+
+            Cal("init", "dental-appointment", { origin: "https://app.cal.com" });
+            Cal.ns["dental-appointment"]("inline", {
+                elementOrSelector: "#my-cal-inline-dental-appointment",
+                config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
+                calLink: "eliab-vxrwqa/dental-appointment",
+            });
+            Cal.ns["dental-appointment"]("ui", {
+                "cssVarsPerTheme": { "light": { "cal-brand": "#292929" }, "dark": { "cal-brand": "#176ea5" } },
+                "hideEventTypeDetails": false,
+                "layout": "month_view"
+            });
+        };
+
+        if ('IntersectionObserver' in window) {
+            const calObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadCalWidget();
+                        obs.disconnect();
+                    }
+                });
+            }, { rootMargin: '200px' });
+            calObserver.observe(calContainer);
+        } else {
+            // Fallback: load after window load event
+            window.addEventListener('load', loadCalWidget);
+        }
+    }
 
     // Hamburger Menu Logic
     const hamburger = document.querySelector('.hamburger');
@@ -885,6 +957,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    loadGoogleReviews();
+    // Defer Google Reviews fetch to not compete with LCP
+    if (document.readyState === 'complete') {
+        loadGoogleReviews();
+    } else {
+        window.addEventListener('load', loadGoogleReviews);
+    }
 
 });

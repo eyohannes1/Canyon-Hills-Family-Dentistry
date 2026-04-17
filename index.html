@@ -50,7 +50,17 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+    <!-- Preconnect to font origins for faster font fetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts (non-blocking via preload pattern) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"></noscript>
+
     <!-- Stylesheet -->
+    <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
 
 
@@ -203,22 +213,38 @@
                     <div class="hero-trust">
                         <div class="avatars">
                             <!-- Placeholder for avatars -->
-                            <img src="assets/images/avatar1.png" alt="Google Reviewer 1" class="avatar-circle">
-                            <img src="assets/images/avatar2.jpg" alt="Google Reviewer 2" class="avatar-circle">
-                            <img src="assets/images/avatar3.png" alt="Google Reviewer 3" class="avatar-circle">
+                            <picture>
+                                <source srcset="assets/images/avatar1.webp" type="image/webp">
+                                <img src="assets/images/avatar1.png" alt="Google Reviewer 1" class="avatar-circle" width="65" height="65" decoding="async" fetchpriority="high">
+                            </picture>
+                            <picture>
+                                <source srcset="assets/images/avatar2.webp" type="image/webp">
+                                <img src="assets/images/avatar2.jpg" alt="Google Reviewer 2" class="avatar-circle" width="65" height="65" decoding="async" fetchpriority="high">
+                            </picture>
+                            <picture>
+                                <source srcset="assets/images/avatar3.webp" type="image/webp">
+                                <img src="assets/images/avatar3.png" alt="Google Reviewer 3" class="avatar-circle" width="65" height="65" decoding="async" fetchpriority="high">
+                            </picture>
                         </div>
                         <div style="display: flex; align-items: center; gap: 6px;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#FBBF24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#FBBF24" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#FBBF24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                                    fill="#FBBF24" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
-                            <span class="trust-text" style="font-weight: 600; font-size: 14px; color: #1E293B;">50+ 5 Star Google Reviews</span>
+                            <span class="trust-text" style="font-weight: 600; font-size: 14px; color: #1E293B;">50+ 5
+                                Star Google Reviews</span>
                         </div>
                     </div>
 
-                    <h1 class="hero-title">Dentists in Phoenix, AZ</h1>
+                    <h1 class="hero-title">Dentist in Phoenix, AZ</h1>
 
                     <div class="hero-subtitle-wrapper">
-                        <p class="hero-subtitle">Welcome to Canyon Hills Family Dentistry. Our dental clinic offers expert care and hygienist services fit for the whole family. We are now accepting new patients in Phoenix—book your appointment today!</p>
+                        <p class="hero-subtitle">Welcome to Canyon Hills Family Dentistry. Our dental clinic offers
+                            expert care and hygienist services fit for the whole family. We are now accepting new
+                            patients in Phoenix—book your appointment today!</p>
                     </div>
 
                     <div class="hero-actions">
@@ -228,24 +254,20 @@
 
                 </div>
 
-                <!-- Right Column: Cal.com Booking Calendar -->
+                <!-- Right Column: Cal.com Booking Calendar (lazy-loaded on scroll) -->
                 <div class="hero-image-wrapper reveal-on-scroll">
-                    <!-- Cal inline embed code begins -->
-                    <div style="width:100%;height:100%;min-height:600px;overflow:scroll;border-radius:12px;"
-                        id="my-cal-inline-dental-appointment"></div>
-                    <script type="text/javascript">
-                        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-                        Cal("init", "dental-appointment", { origin: "https://app.cal.com" });
-
-                        Cal.ns["dental-appointment"]("inline", {
-                            elementOrSelector: "#my-cal-inline-dental-appointment",
-                            config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
-                            calLink: "eliab-vxrwqa/dental-appointment",
-                        });
-
-                        Cal.ns["dental-appointment"]("ui", { "cssVarsPerTheme": { "light": { "cal-brand": "#292929" }, "dark": { "cal-brand": "#176ea5" } }, "hideEventTypeDetails": false, "layout": "month_view" });
-                    </script>
-                    <!-- Cal inline embed code ends -->
+                    <div class="cal-embed-container"
+                        id="my-cal-inline-dental-appointment"
+                        role="region"
+                        aria-label="Appointment booking calendar">
+                        <div class="cal-placeholder" aria-hidden="true">
+                            <div class="cal-placeholder-spinner"></div>
+                            <p class="cal-placeholder-text">Loading booking calendar…</p>
+                            <a href="https://cal.com/eliab-vxrwqa/dental-appointment"
+                                class="btn btn-primary cal-placeholder-fallback"
+                                target="_blank" rel="noopener noreferrer">Book Appointment</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -270,7 +292,10 @@
                                 <cite>Anthony Pierson</cite>
                                 <span class="testimonial-source">Google Review</span>
                             </div>
-                            <img src="assets/images/review-anthony.png" alt="Anthony Pierson" class="author-photo">
+                            <picture>
+                                <source srcset="assets/images/review-anthony.webp" type="image/webp">
+                                <img src="assets/images/review-anthony.png" alt="Anthony Pierson" class="author-photo" width="65" height="65" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                     </div>
 
@@ -284,7 +309,10 @@
                                 <cite>Carlos Hernandez</cite>
                                 <span class="testimonial-source">Google Review</span>
                             </div>
-                            <img src="assets/images/review-carlos.png" alt="Carlos Hernandez" class="author-photo">
+                            <picture>
+                                <source srcset="assets/images/review-carlos.webp" type="image/webp">
+                                <img src="assets/images/review-carlos.png" alt="Carlos Hernandez" class="author-photo" width="65" height="65" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                     </div>
 
@@ -302,7 +330,10 @@
                                 <cite>Resume R.</cite>
                                 <span class="testimonial-source">Yelp Review</span>
                             </div>
-                            <img src="assets/images/review-resume.jpg" alt="Resume R." class="author-photo">
+                            <picture>
+                                <source srcset="assets/images/review-resume.webp" type="image/webp">
+                                <img src="assets/images/review-resume.jpg" alt="Resume R." class="author-photo" width="65" height="65" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                     </div>
                 </div>
@@ -321,8 +352,11 @@
                     <!-- Doctor 1 -->
                     <div class="card team-card featured-doctor-card reveal-on-scroll">
                         <div class="team-photo-wrapper">
-                            <img src="assets/images/dr-daniel-yohannes.jpg" alt="Dr. Daniel Yohannes, DDS"
-                                class="team-photo">
+                            <picture>
+                                <source srcset="assets/images/dr-daniel-yohannes.webp" type="image/webp">
+                                <img src="assets/images/dr-daniel-yohannes.jpg" alt="Dr. Daniel Yohannes, DDS"
+                                    class="team-photo" width="504" height="917" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="team-info">
                             <h3 class="team-name">Dr. Daniel Yohannes</h3>
@@ -422,7 +456,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h4>Canyon Hills Family Dentistry</h4>
+                    <h3>Canyon Hills Family Dentistry</h3>
                     <p>Quality care for the whole family in English and Spanish.</p>
                     <div style="margin-top: 16px;">
                         <a href="#">Facebook</a>
@@ -430,22 +464,23 @@
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Quick Links</h4>
+                    <h3>Quick Links</h3>
                     <a href="#">Home</a>
                     <a href="#team">Our Team</a>
                     <a href="services.html">Services</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Visit Us</h4>
+                    <h3>Visit Us</h3>
                     <p>13822 N 35th Dr #3<br>Phoenix, AZ 85053</p>
                     <p><a href="tel:6235167766">(623) 516-7766</a></p>
                     <p>Mon-Fri: 9am - 6pm<br>Sat: 8am - 3pm</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Find Us</h4>
+                    <h3>Find Us</h3>
                     <div class="map-container">
                         <!-- Placeholder Map iFrame -->
                         <iframe
+                            title="Map showing Canyon Hills Family Dentistry location at 13822 N 35th Dr #3, Phoenix, AZ 85053"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.7491699612037!2d-112.13802122372229!3d33.61181204085708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b6eae41b099e7%3A0x2f6a4a2ee32c7804!2s13822%20N%2035th%20Dr%20%233%2C%20Phoenix%2C%20AZ%2085053!5e0!3m2!1sen!2sus!4v1768517365331!5m2!1sen!2sus"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
