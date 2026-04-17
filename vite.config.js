@@ -2,6 +2,9 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
     build: {
+        cssCodeSplit: true,
+        cssMinify: 'esbuild',
+        minify: 'esbuild',
         rollupOptions: {
             input: {
                 main: './index.html',

@@ -800,6 +800,10 @@ p {
     position: relative;
 }
 
+.avatars > picture {
+    display: contents;
+}
+
 .avatar-circle {
     width: 40px;
     height: 40px;
@@ -927,7 +931,7 @@ p {
     }
 
     .hero-image-wrapper {
-        order: 2;
+        display: none;
     }
 
     .hero-actions {

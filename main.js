@@ -90,9 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: true });
 
-    // Cal.com Booking Widget - Lazy load on scroll-into-view
+    // Cal.com Booking Widget - Desktop only, lazy load on scroll-into-view
+    // On mobile the embed is hidden via CSS and users use the "Book Appointment" CTA
+    // which links to cal.com externally. Skipping the script entirely on mobile is the
+    // biggest LCP win (was 9.9s on mobile PageSpeed).
     const calContainer = document.getElementById('my-cal-inline-dental-appointment');
-    if (calContainer) {
+    const isDesktopViewport = window.matchMedia('(min-width: 969px)').matches;
+    if (calContainer && isDesktopViewport) {
         let calLoaded = false;
         const loadCalWidget = () => {
             if (calLoaded) return;
